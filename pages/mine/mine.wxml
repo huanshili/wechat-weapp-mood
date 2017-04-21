@@ -1,0 +1,53 @@
+<loading hidden="{{loading}}" >
+    玩命加载中...
+</loading>
+
+
+<view class="container" hidden="{{hiddenView}}">
+    <view class="userinfo" bindtap="userinfofn">
+        <image class="userinfo-avatar" src="{{userImage}}" background-size="cover" mode="scaleToFill"></image>
+        <text class="userinfo-nickname">{{userName}}</text>
+        <text class="userinfo-signature">{{userSignature}}</text>
+    </view>
+
+    <view class="setlist">
+        <view class="suggest" bindtap="suggestfn" hover="true" hover-class="hoverView">
+            <image class="image" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/263ba09a40ee9f608027145dae0adef3.png"></image>
+            <text class="text">意见反馈</text>
+            <view class="box">
+                <image class="goto" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/3a9b029340e2f6e6803af98827157bcb.png"></image>
+            </view>
+        </view>
+        <view class="linebox">
+            <view class="line"></view>
+        </view>
+        
+        <view class="setting" bindtap="settingfn"hover="true" hover-class="hoverView">
+            <image class="image" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/0e8f4094406abbb5804e05e86956dfd3.png"></image>
+            <text class="text">设置</text>
+            <view class="box">
+                <image class="goto" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/3a9b029340e2f6e6803af98827157bcb.png"></image>
+            </view>
+        </view>
+        <view class="linebox">
+            <view class="line"></view>
+        </view>
+        <view class="about" bindtap="aboutfn" hover="true" hover-class="hoverView">
+            <image class="image" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/87482594405b8bc380c57e6bdb95ab85.png"></image>
+            <text class="text">关于</text>
+            <view class="box">
+                <image class="goto" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/3a9b029340e2f6e6803af98827157bcb.png"></image>
+            </view>
+        </view>
+
+    </view>
+    <view class="contact">
+        <text >联系客服</text>
+        <view class="circle">
+
+            <contact-button  class="contactBtn" type="default-dark" size="20" session-from="weapp"></contact-button>
+        </view>
+        
+    </view>
+        
+</view>

@@ -1,0 +1,14 @@
+
+<loading hidden="{{hiddenLoading}}" >
+    保存中...
+</loading>
+<view class="container">
+    <view class="input-text">
+        <textarea  maxlength="30" value="{{signature}}" bindinput="textChange" auto-focus/>
+        <text class="input-num">{{inputNum}}</text>
+    </view>
+
+    <view class="input-button">
+        <button type="primary" bindtap="submit"> 保存</button>
+    </view>
+</view>

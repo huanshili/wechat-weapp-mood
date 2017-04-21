@@ -1,0 +1,39 @@
+<template name="moodSquareItem">
+    <block wx:if="{{showLoading}}">
+        <loading class="loading" >
+            玩命加载中...
+        </loading>
+    </block>
+    <block wx:else>
+        <view class="mood">
+            <block wx:for-items="{{moodSquareList}}" wx:key="moodListId">
+                <view class="mood-item" data-id="{{item.id}}" bindtap="moodDetail" hover="true" hover-class="hoverView" >
+                    <view class="mood-header">
+                        <view class="mood-header-left">
+                            <image  mode="aspectFill" src="{{item.avatar}}" ></image>
+                            <view>{{item.nickname}}</view>
+                        </view>
+                        <view class="mood-header-right">{{item.created_at}}</view>
+                    </view>
+                    <view class="mood-middle">
+                        <image  mode="aspectFill" src="{{item.attachment}}" class="moodPic" wx:if="{{item.attachment}}" ></image>
+                        <view class="moodContent">
+                            {{item.content}}
+                        </view>
+                    </view>
+                    <view class="mood-footer">
+                        <view class="mood-footer-agreeNum_{{item.is_liked}}">{{item.likes}}</view>
+                        <view class="mood-footer-commNum">{{item.comments}}</view>
+                    </view>
+                </view>
+                
+            </block>
+            <block wx:if="{{hasMore}}">
+                <view class="loading-tip">拼命加载中</view>
+            </block>
+            <block wx:else>
+                <view class="loading-tip" >没有更多内容了</view>
+            </block>
+        </view>
+    </block>
+</template>

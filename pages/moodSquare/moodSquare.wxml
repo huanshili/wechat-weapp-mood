@@ -1,0 +1,2 @@
+<import src="../template/moodSquareItem/moodSquareItem.wxml" />
+<template is="moodSquareItem" data="{{moodSquareList:moodSquareList,showLoading:showLoading,hasMore:hasMore}}"></template>

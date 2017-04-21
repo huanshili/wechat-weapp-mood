@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.up-item {
+    padding-left: 10px;
+    padding-top: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    height: 46px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+text {
+    width: 48px;
+    color: black;
+}
+input {
+    flex: 1;
+    margin-left: 25px;
+}
+
+.line {
+    height: 1px;
+    background-color: #f2f2f2;
+}
+
+.down-item{
+    margin-top: 20px;
+    padding: 0 25rpx;
+    background-color: #fff;
+}
+textarea {
+    width: 700rpx;
+    height: 280rpx;
+    padding: 20rpx 0;
+}
+
+button {
+    margin-top: 40rpx;
+    width: 680rpx;
+}
+
+.submit-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+icon {
+    margin-top: 100rpx;
+}
+
+.text1 {
+    width: 60px;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+}
+
+.text2 {
+    width: 88px;
+    color: #aaa;
+}
+

@@ -1,0 +1,8 @@
+<import src="../template/moodListItem/moodListItem.wxml" />
+<template is="moodListItem" data="{{moodList:moodList,hiddenLoading:hiddenLoading,hasMore:hasMore,noData:noData}}"></template>
+
+<text class="noData" wx:if="{{noData}}">
+你还没有记录心情，快点写下这一刻心情吧
+</text>
+
+<navigator  class="toWrite" url="../write/write"></navigator>

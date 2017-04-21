@@ -1,0 +1,86 @@
+<loading hidden="{{hiddenLoading}}" >
+    页面加载中...
+</loading>
+<loading hidden="{{hiddenNickLoading}}" >
+    昵称修改中...
+</loading>
+<loading hidden="{{hiddenImageLoading}}" >
+    头像上传中...
+</loading>
+<loading hidden="{{hiddenBirLoading}}" >
+    生日修改中...
+</loading>
+<view class="container" hidden="{{hiddenView}}">
+
+    <view class="rowItem">
+        <view class="user-image" bindtap="modifyImage">
+            <text class="user-item-left">头像</text>
+            <view class="user-item-right">
+                <image class="userimage" src="{{userImage}}" mode="scaleToFill"></image>
+                <image class="goimage" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/02/f679203e40d77561805bed2141a57690.png"></image>
+            </view>
+        </view>
+
+        <view class="line"></view>
+
+        <view class="user-item" bindtap="modifyNickname">
+            <text class="user-item-left">昵称</text>
+            <view class="user-item-right">
+                <text class="nickname">{{userName}}</text>
+                <image class="goimage" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/02/f679203e40d77561805bed2141a57690.png"></image>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="rowItem">
+        <view class="user-item-s">
+            <text class="user-item-left">地区</text>
+            <view class="user-item-right">
+                <text class="nickname">{{address}}</text>
+            </view>
+        </view>
+
+        <view class="line"></view>
+
+        <view class="user-item-s">
+            <text class="user-item-left">性别</text>
+            <view class="user-item-right">
+                <text class="nickname">{{gender}}</text>
+            </view>
+        </view>
+
+        <view class="line"></view>
+
+        <picker mode="date" value="{{date}}" start="1917-01-01" end="2027-04-07" bindchange="bindDateChange">
+            <view class="user-item" >
+                <text class="user-item-left">生日</text>
+                <view class="user-item-right">
+                    <text class="nickname">{{birthday}}</text>
+                    <image class="goimage" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/02/f679203e40d77561805bed2141a57690.png"></image>
+                </view>
+            </view>
+        </picker>
+
+        <view class="line"></view>
+        <view class="user-item" bindtap="modifySignature">
+            <text class="user-item-left">个性签名</text>
+            <view class="user-item-right">
+                <text class="nickname">{{signature}}</text>
+                <image class="goimage" src="http://bmob-cdn-10127.b0.upaiyun.com/2017/04/02/f679203e40d77561805bed2141a57690.png"></image>
+            </view>
+        </view>
+
+    </view>
+
+    <view class="modify_nick_layer" wx:if="{{isModifyNick}}" bindtap="hiddenForm"></view>
+    <view class="modify_nick" wx:if="{{isModifyNick}}">
+        <form bindsubmit="modifyNick" bindreset="formReset">
+            <input placeholder="请输入昵称" value="{{userName}}" name="changeNick"/>
+            <button class="modify_nick_btn" form-type="submit" disabled="{{isdisabled}}" loading="{{modifyLoading}}">保存</button>
+        </form>
+    </view>
+
+
+
+</view>

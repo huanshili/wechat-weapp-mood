@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 46px;
+    padding-left: 15px;
+    background-color: white;
+    line-height: 46px;
+    margin-top: 20px;
+}
+
+
+.box{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    margin-right: 15px;
+}

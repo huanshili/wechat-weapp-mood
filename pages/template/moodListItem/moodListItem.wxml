@@ -1,0 +1,49 @@
+//心情列表模板
+
+<template name="moodListItem">
+    <block wx:if="{{hiddenLoading}}">
+        <loading class="loading" >
+            玩命加载中...
+        </loading>
+    </block>
+    <block wx:else>
+        <view class="mood">
+            <block wx:for-items="{{moodList}}" wx:key="moodListId">
+                <view class="mood-item" data-id="{{item.id}}" bindtap="moodDetail" hover="true" hover-class="hoverView" >
+                    <view class="mood-middle">
+                        <image  mode="aspectFill" src="{{item.attachment}}" class="moodPic" wx:if="{{item.attachment}}" ></image>
+                        <view class="moodContent">
+                            {{item.content}}
+                        </view>
+                    </view>
+                    <view class="mood-footer">
+                        <view class="mood-footer-left">{{item.created_at}}</view>
+                        <view class="mood-footer-right_{{item.status}} "></view>
+                    </view>
+                </view>
+                
+            </block>
+            <block wx:if="{{hasMore}}">
+                <view class="loading-tip">拼命加载中</view>
+            </block>
+            <block wx:else>
+                <view class="loading-tip" wx:if="{{!noData}}">没有更多内容了</view>
+            </block>
+        </view>
+    </block>
+</template>
+
+
+
+
+
+
+<template name="listHeader">
+    <view class="list_header">
+        <view class="list_header_left">
+            <image  mode="aspectFill" src="{{userPic}}" wx:if="userPic"></image>
+            <view>{{userNick}}</view>
+        </view>
+        <view class="list_header_right">{{publishTime}}</view>
+    </view>
+</template>

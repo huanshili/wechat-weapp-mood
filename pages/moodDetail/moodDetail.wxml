@@ -1,0 +1,63 @@
+<block wx:if="{{showLoading}}">
+    <loading class="loading" >
+    玩命加载中...
+    </loading>
+</block>
+
+<loading hidden="{{hiddenResLoading}}" >
+    评论发送中...
+</loading>
+
+<view class="mood-detail">
+
+    <view class="operation-box" wx:if="{{isMine}}">
+        <view class="deleteMood" bindtap="deleteMood"></view>
+        <view class="changeStatus_{{isPublic}}" bindtap="changeStatus"></view>
+    </view>
+
+    <view class="mood-content">
+        <image  mode="aspectFill" src="{{moodPic}}" class="moodPic" wx:if="{{moodPic}}" bindtap="seeBig" ></image>
+        <view class="moodContent">
+            {{moodContent}}
+        </view>    
+    </view>
+    
+    <view class="mood-userInfo">
+        <image  mode="aspectFill" src="{{userPic}}" ></image>
+        <view>{{userNickname}}</view>
+    </view>
+
+    <view class="mood-data">
+        <view class="publishTime"> {{publishTime}}</view>
+        <view class="agrAndComm">
+            <view class="agreeNum_{{isLiked}}" bindtap="like">{{agreeNum}}</view>
+            <view class="commNum" bindtap="comment">{{commNum}}</view>
+        </view>
+    </view>
+
+</view>
+
+<view class="commentList" wx:if="{{commentList.length>0}}">
+    <block wx:for-items="{{commentList}}" wx:key="commentListId">
+        <view class="mood-comment">
+            <view class="comment-header">
+                <view class="comment-header-left">
+                    <image  mode="aspectFill" src="{{item.commentUserpic}}" ></image>
+                    <view>{{item.commentUsername}}</view>
+                </view>
+                <view class="comment-header-right">{{item.publishTime}}</view>
+            </view>
+            <view class="comment-middle">{{item.commContent}}</view>
+            <view class="comment-footer"></view>
+        </view>
+    </block>
+</view>
+
+
+<view class="Response_layer" wx:if="{{isToResponse}}" bindtap="hiddenResponse"></view>
+<view class="comment_box" wx:if="{{isToResponse}}">
+  <form bindsubmit="publishComment">
+    <input placeholder="回复心情：" name="commContent" value="{{responeContent}}" />
+    <button class="publishBtn" type="default" hover-class="other-button-hover" formType="submit" > 发送 </button>
+  </form>
+</view>

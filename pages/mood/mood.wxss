@@ -1,0 +1,29 @@
+@import "../template/moodListItem/moodListItem.wxss";
+
+.toWrite {
+  width: 100rpx;
+  height: 100rpx;
+  background: url(http://bmob-cdn-10127.b0.upaiyun.com/2017/04/16/969ffbcf4041eb0180096fd81d23c4a8.png) no-repeat;
+  padding: 0;
+  background-size: cover;
+  position: fixed;
+  right: 74rpx;
+  bottom: 100rpx;
+  border-bottom: 0;
+  border-top: 0;
+}
+
+.noData {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top: 30%;
+  margin-top: -20rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 26px;
+  color: #b5b5b5;
+}
+

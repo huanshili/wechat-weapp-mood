@@ -1,0 +1,19 @@
+<view class="app-about">
+    <view class="app-title">小心情er</view>
+    <view class="app-intro">
+        <view class="app-intro-item">
+            <view class="app-intro-title">后端支持</view>
+            <view class="app-intro-content">Bmob后端云</view>
+        </view>
+
+        <view class="app-intro-item">
+            <view class="app-intro-title">作者</view>
+            <view class="app-intro-content">@七月外星人</view>
+        </view>
+
+        <view class="app-intro-item">
+            <view class="app-intro-title">简介</view>
+            <view class="app-intro-content">小心情er，是一款类似“树洞”的小程序，用户可以记录自己的小秘密，也可以和陌生人分享！</view>
+        </view>
+    </view>
+</view>

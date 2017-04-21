@@ -1,0 +1,40 @@
+<view class="container" hidden="{{hiddenUp}}">
+
+    <view class="up-item">
+
+        <view class="name">
+            <text>姓名</text>
+            <input placeholder="请输入姓名" bindinput="inputName"/>
+        </view>
+        <view class="line"></view>
+
+        <view class="name">
+            <text>微信号</text>
+            <input placeholder="请输入微信号" bindinput="inputWechat"/>
+        </view>
+        <view class="line"></view>
+
+        <view class="name">
+            <text>手机号</text>
+            <input placeholder="请输入手机号" bindinput="inputPhone"/>
+        </view>
+
+    </view>
+
+    <view class="down-item">
+        <textarea placeholder="输入您想说的话" cursor-spacing="200" bindinput="inputSuggest"/>
+    </view>
+
+    <button type="primary" bindtap="submit">提交</button>
+
+</view>
+
+
+
+<view class="submit-success" hidden="{{hiddenDown}}">
+    <icon type="success"  size="70"/>
+    <text class="text1">提交成功</text>
+    <text class="text2">谢谢您的反馈</text>
+    <button type="primary" bindtap="back">返回</button>
+
+</view>

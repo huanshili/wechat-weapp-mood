@@ -1,0 +1,47 @@
+{
+  "pages":[
+    
+    "pages/moodSquare/moodSquare",
+    "pages/mood/mood",
+    "pages/mine/mine",
+    "pages/moodDetail/moodDetail",
+    "pages/feedback/feedback",
+    "pages/write/write",
+    "pages/newList/newList",
+    "pages/protocol/protocol",
+    "pages/about/about",
+    "pages/userInfo/userInfo",
+    "pages/signature/signature",
+    "pages/setting/setting"
+
+  ],
+  "window":{
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText": "小心情er"
+  },
+  "tabBar": {
+    "backgroundColor":"#FAFAFA",
+    "borderStyle":"white",
+    "color":"#b2b2b2",
+    "selectedColor":"#1e1e1e", 
+    "list": [{
+      "pagePath": "pages/mood/mood",
+      "selectedIconPath":"static/images/heart1.png",
+      "iconPath":"static/images/heart.png",
+      "text": "心情"
+    }, {
+      "pagePath": "pages/moodSquare/moodSquare",
+      "selectedIconPath":"static/images/email1.png",
+      "iconPath":"static/images/email.png",
+      "text": "广场"
+    }, {
+      "pagePath": "pages/mine/mine",
+      "selectedIconPath":"static/images/mine1.png", 
+      "iconPath":"static/images/mine.png",
+      "text": "我"
+    }]
+  }
+
+}
