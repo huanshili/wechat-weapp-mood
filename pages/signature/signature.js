@@ -14,6 +14,7 @@ Page({
         that = this;
     },
     onShow: function () {
+        console.log('signature:onShow');
         wx.getStorage({
           key: 'user_id',
           success: function(ress){

@@ -39,7 +39,7 @@
 
 <view class="commentList" wx:if="{{commentList.length>0}}">
     <block wx:for-items="{{commentList}}" wx:key="commentListId">
-        <view class="mood-comment">
+        <view class="mood-comment" data-id="{{item.id}}" data-uid="{{item.uid}}" data-name="{{item.commentUsername}}" bindtap="commentOther">
             <view class="comment-header">
                 <view class="comment-header-left">
                     <image  mode="aspectFill" src="{{item.commentUserpic}}" ></image>
@@ -47,7 +47,13 @@
                 </view>
                 <view class="comment-header-right">{{item.publishTime}}</view>
             </view>
-            <view class="comment-middle">{{item.commContent}}</view>
+            <view class="comment-middle">
+                <block wx:if="{{item.pid!=0}}">
+                    <view class="response">回复</view>
+                    <view class="olderUserName">{{item.olderUserName}}</view>:
+                </block>
+                <text class="content">{{item.commContent}}</text>
+            </view>
             <view class="comment-footer"></view>
         </view>
     </block>
@@ -57,7 +63,7 @@
 <view class="Response_layer" wx:if="{{isToResponse}}" bindtap="hiddenResponse"></view>
 <view class="comment_box" wx:if="{{isToResponse}}">
   <form bindsubmit="publishComment">
-    <input placeholder="回复心情：" name="commContent" value="{{responeContent}}" />
+    <input placeholder="{{placeHolderText}}" name="commContent" value="{{responeContent}}" />
     <button class="publishBtn" type="default" hover-class="other-button-hover" formType="submit" > 发送 </button>
   </form>
 </view>

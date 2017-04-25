@@ -21,8 +21,10 @@ Page({
     onLoad: function () {
         console.log('userInfo:onLoad');
         that = this;
+        
     },
     onShow: function () {
+        console.log('userInfo:onShow');
         var myInterval = setInterval(getReturn,500);
         function getReturn() {
             wx.getStorage({

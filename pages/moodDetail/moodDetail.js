@@ -93,16 +93,27 @@ Page({
     query.descending("createdAt");
     query.find({
       success: function (result) {
+        console.log("queryCommentResult");
         console.log(result);
         for(var i=0; i<result.length; i++){
           var commentId = result[i].id;
+          var pid = result[i].get("olderComment");
+          var uid = result[i].get("publisher").id;
           var commContent = result[i].get("content");
           var publishTime = result[i].createdAt;
+          var olderUserName;
           var commentUsername = result[i].get("publisher").get("nickname");
           var commentUserpic = result[i].get("publisher").get("userPic");
-          console.log(commentUserpic);
+
+          if(pid) {
+            pid = pid.id;
+            olderUserName=result[i].get("olderUserName");
+          } else {
+            pid=0;
+            olderUserName="";
+          }
           var jsonA;
-          jsonA = '{"id":"'+commentId+'","commContent":"'+commContent+'","commentUsername":"'+commentUsername+'","commentUserpic":"'+commentUserpic+'","publishTime":"'+publishTime+'"}'
+          jsonA = '{"id":"'+commentId+'","commContent":"'+commContent+'","pid":"'+pid+'","uid":"'+uid+'","olderUserName":"'+olderUserName+'","commentUsername":"'+commentUsername+'","commentUserpic":"'+commentUserpic+'","publishTime":"'+publishTime+'"}'
           var jsonB = JSON.parse(jsonA);
           commentList.push(jsonB);
           that.setData({
@@ -118,7 +129,7 @@ Page({
   },
 
   like: function () {
-    console.log("你好！");
+    // console.log("你好！");
     var isLike = that.data.isLiked;
     var likeNum = parseInt(that.data.agreeNum);
 
@@ -181,7 +192,9 @@ Page({
   },
   comment: function () {
     that.setData({
-      isToResponse:true
+      isCommentOther:false,
+      isToResponse:true,
+      placeHolderText:"回复心情："
     })
   },
   hiddenResponse: function () {
@@ -222,6 +235,14 @@ Page({
               comment.set("publisher",me);
               comment.set("mood",moodRes);
               comment.set("content",e.detail.value.commContent);
+              if(that.data.isCommentOther) {
+                var Comments1 = Bmob.Object.extend("Comments");
+                var comment1 = new Comments1();
+                comment1.id = that.data.commentId;
+                comment.set("olderUserName",that.data.commentName);
+                comment.set("olderComment",comment1);
+              }
+              
               comment.save({
                 success: function (result) {
                   console.log("评论成功");
@@ -245,7 +266,7 @@ Page({
                   }
                   
                   that.onShow();
-                  console.log("执行到这里了");
+                  // console.log("执行到这里了");
                 },
                 error: function () {
 
@@ -259,5 +280,28 @@ Page({
         }
       })
     }
+  },
+  commentOther: function (e) {
+    var data = e.currentTarget.dataset;
+    var uid = data.uid;
+    var commentId = data.id;
+    var name = data.name;
+    if(uid == wx.getStorageSync('user_id')){
+       wx.showModal({
+          title: '提示',
+          content: '不能对自己的评论进行回复',
+          showCancel:false
+       });
+    }else {
+      that.setData({
+        isCommentOther:true,
+        isToResponse:true,
+        placeHolderText:"回复"+name+"：",
+        commentId:commentId,
+        commentName:name
+
+      })
+    }
+    
   }
 })
